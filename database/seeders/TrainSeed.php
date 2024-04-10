@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+require_once 'vendor/autoload.php';
+
+use Faker\Generator as Faker;
 use App\Models\Train;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -11,21 +14,27 @@ class TrainSeed extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
-        
-        $newTrain = new Train();
 
-        $newTrain->Azienda="Brico storto";
-        $newTrain->Stazione_di_partenza="Salerno";
-        $newTrain->Stazione_di_arrivo="Milano Centrale";
-        $newTrain->Ora_di_partenza="14:00:00";
-        $newTrain->ora_di_arrivo="20:00:00";
-        $newTrain->Codice_treno="34652";
-        $newTrain->Numero_carrozze="9";
-        $newTrain->In_orario=true;
-        $newTrain->Cancellato=false;
-        $newTrain->save();
+        // $faker = Faker\Factory::create();
+        
+
+        for ($i=0; $i < 10; $i++) { 
+            $newTrain = new Train();
+    
+    
+            $newTrain->Azienda=$faker->word();
+            $newTrain->Stazione_di_partenza=$faker->word();
+            $newTrain->Stazione_di_arrivo=$faker->word();
+            $newTrain->Ora_di_partenza=$faker->time();
+            $newTrain->ora_di_arrivo=$faker->time();
+            $newTrain->Codice_treno=$faker->randomNumber(5, true);;
+            $newTrain->Numero_carrozze=$faker->randomDigit();
+            $newTrain->In_orario=$faker->boolean();
+            $newTrain->Cancellato=$faker->boolean();
+            $newTrain->save();
+        }
 
     }
 }
