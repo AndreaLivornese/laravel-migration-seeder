@@ -20,8 +20,8 @@ return new class extends Migration
             $table->dateTimeTz('ora di arrivo');
             $table->string('Codice treno', 6);
             $table->string('Numero carrozze', 2);
-            $table->boolen('In orario');
-            $table->boolen('Cancellato');
+            $table->boolean('In orario');
+            $table->boolean('Cancellato');
             $table->timestamps();
         });
     }
