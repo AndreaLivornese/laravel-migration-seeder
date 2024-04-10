@@ -11,9 +11,9 @@ class DataController extends Controller
 
     public function index(){
 
-        $trains = Train::all();
+        $trains = Train::where('Data', gmdate('Y-m-d'))->get();
 
-        @dump($trains);
+        // @dump($trains);
         
         return view('home', compact('trains'));
     }
