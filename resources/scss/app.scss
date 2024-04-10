@@ -1,1 +1,57 @@
 @import "~bootstrap/scss/bootstrap";
+
+@import "parcials/variables.scss";
+
+
+body{
+    background-color:#f2f3f7;
+}
+
+.my_card{
+    width: 500px;
+
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap:5px;
+
+
+    font-size:20px;
+    font-weight: 600;
+    color:$primary;
+
+    .luogo{
+        font-size:12px;
+        color:black;
+        text-transform: uppercase;
+    }
+}
+
+hr{
+    align-self: flex-start;
+    margin: 0;
+    margin-top: 15px;
+    flex-grow: 1;
+
+    color:rgba(0, 0, 0, .6);
+}
+
+.my_btn{
+
+    display: inline-block;
+
+    padding:8px 12px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}
+
+.btn_primary{
+    background-color: $primary;
+    color:white;
+}
